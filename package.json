@@ -8,6 +8,7 @@
     "express-session": "^1.17.3",
     "mongodb": "^5.5.0",
     "mongoose": "^7.2.2",
+    "nodemon": "^2.0.22",
     "vercel": "^30.0.0"
   },
   "name": "g20",
@@ -15,7 +16,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon app.js -e js,ejs"
   },
   "keywords": [],
   "author": "",
