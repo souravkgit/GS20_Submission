@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 
 app.use('', Home)
-app.use('/resource', express.static("public"))
+app.use('/resource', express.static("contents"))
 app.set('view engine', 'ejs')
 app.set('views', 'views')
 app.use(bodyParser.urlencoded({ extended: true }));
