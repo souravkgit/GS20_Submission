@@ -19,12 +19,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-// const isBuildProcess = process.env.NOW_REGION === 'dev1';
-
-// if (!isBuildProcess) {
-//     const server = app.listen(PORT, () => {
-//         console.log('Server started on ', PORT);
-//     });
-// }
 
 module.exports = app;
