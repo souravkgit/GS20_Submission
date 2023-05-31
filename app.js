@@ -5,7 +5,7 @@ require("dotenv").config();
 const bodyParser = require('body-parser');
 
 
-app.use('', Home)
+app.use('/', Home)
 app.use('/resource', express.static("contents"))
 app.set('view engine', 'ejs')
 app.set('views', 'views')
