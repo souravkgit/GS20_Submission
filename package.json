@@ -8,8 +8,7 @@
     "express-session": "^1.17.3",
     "mongodb": "^5.5.0",
     "mongoose": "^7.2.2",
-    "nodemon": "^2.0.22",
-    "vercel": "^30.0.0"
+    "nodemon": "^2.0.22"
   },
   "name": "g20",
   "version": "1.0.0",
