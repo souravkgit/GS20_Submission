@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+    <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <link href="/resource/css/HomePage.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav">
+            <div class="nav-title">
+                GS20
+            </div>
+            <div class="nav-components">
+                <div class="nav-search">
+                    <i class="fa fa-search" style="font-size:24px; color: #812d78;"></i>
+                </div>
+                <div class="nav-profile">
+                    <i class="fa fa-user" style="font-size:24px; color: #812d78;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-container">
+        <div class="top-carousel">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="slide active">
+                        <img src="/resource/utils/top.png" class="slide-img" alt="Slide 1">
+                    </div>
+                    <div class="slide">
+                        <img src="/resource/utils/top.png" class="slide-img" alt="Slide 2">
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-controls">
+                <button class="carousel-control-button active" onclick="changeSlide(0)"></button>
+                <button class="carousel-control-button" onclick="changeSlide(1)"></button>
+            </div>
+        </div>
+        <div class="top-movers">
+            <div class="top-movers-text">
+                Top Movers
+            </div>
+            <div class="top-movers-carousel">
+                <div class="top-movers-carousel-inner">
+                    <% if(!data || (data && data["topmovers"].length==0)){%>
+                        <div class="empty-card">
+                            No data
+                        </div>
+                        <%} else{%>
+                            <% for(var i=0; i<data["topmovers"].length;i++) {%>
+                                <div class="tmcard">
+                                    <div class="card-name">
+                                        <%= data["topmovers"][i]["name"]%>
+                                    </div>
+                                    <div class="card-country">
+                                        <%= data["topmovers"][i]["type"] %> <span>|</span>
+                                            <%= data["topmovers"][i]["country"]%>
+                                    </div>
+                                    <div class="card-value">
+                                        <%= data["topmovers"][i]["rate"] %> <span <%
+                                                if(data["topmovers"][i]["change"][0]=='+' ) {%>style="color:rgb(106,
+                                                250, 98);"<% } else{%>style="color:red;"
+                                                    <%}%>>
+                                                        (<%= data["topmovers"][i]["change"]%>)
+                                            </span>
+                                    </div>
+                                </div>
+
+                                <%}%>
+                                    <%}%>
+                </div>
+            </div>
+        </div>
+        <div class="all-list">
+            <div class="all-list-text">
+                All List
+            </div>
+            <div class="button-container">
+                <button class="button active" id="trendingButton">Trending Players</button>
+                <button class="button" id="newPlayersButton">New Players</button>
+            </div>
+
+            <div id="trendingPage" class="page active">
+                <div class="cards-container">
+                    <% if(!data || (data && data["trending"].length==0)){%>
+                        <div class="empty-card">
+                            No data
+                        </div>
+                        <%} else{%>
+                            <% for(var i=0; i<data["trending"].length;i++) {%>
+                                <div class="card">
+                                    <div class="cell column1">
+                                        <%= data["trending"][i]["name"]%>
+                                    </div>
+                                    <div class="cell column2">
+                                        <%= data["trending"][i]["rate"] %>
+                                    </div>
+                                    <div class="cell column1">
+                                        <%= data["trending"][i]["type"] %> <span>|</span>
+                                            <%= data["trending"][i]["team"]%>
+                                    </div>
+                                    <div class="cell column2">
+                                        <span <% if(data["trending"][i]["change"][0]=='+' ) {%>style="color:rgb(106,
+                                            250, 98);"<% } else{%>style="color:red;"
+                                                <%}%>>
+                                                    <%= data["trending"][i]["change"]%>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <%}%>
+                                    <%}%>
+                </div>
+            </div>
+
+            <div id="newPlayersPage" class="page">
+                <% if(!data || (data && data["newplayers"].length==0)){%>
+                    <div class="empty-card">
+                        No data
+                    </div>
+                    <%} else{%>
+                        <% for(var i=0; i<data["newplayers"].length;i++) {%>
+                            <div class="card">
+                                <div class="cell column1">
+                                    <%= data["newplayers"][i]["name"]%>
+                                </div>
+                                <div class="cell column2">
+                                    <%= data["newplayers"][i]["rate"] %>
+                                </div>
+                                <div class="cell column1">
+                                    <%= data["newplayers"][i]["type"] %> <span>|</span>
+                                        <%= data["newplayers"][i]["team"]%>
+                                </div>
+                                <div class="cell column2">
+                                    <span <% if(data["newplayers"][i]["change"][0]=='+' ) {%>style="color:rgb(106,
+                                        250, 98);"<% } else{%>style="color:red;"
+                                            <%}%>>
+                                                <%= data["newplayers"][i]["change"]%>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <%}%>
+                                <%}%>
+            </div>
+            <!-- <div class="trending-list"></div>
+            <div class="new-players-list"></div> -->
+        </div>
+    </div>
+
+    <script src="/resource/js/index.js"></script>
+</body>
+
+</html>
