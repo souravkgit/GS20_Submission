@@ -4,18 +4,14 @@
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.20.2",
-    "connect-mongodb-session": "^3.1.1",
     "dotenv": "^16.1.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "express-session": "^1.17.3",
-    "mongodb": "^5.5.0",
-    "mongoose": "^7.2.2",
-    "nodemon": "^2.0.22"
+    "mongoose": "^7.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js -e js,ejs"
+    "start": "node server.js -e js,ejs"
   },
   "keywords": [],
   "author": "",
