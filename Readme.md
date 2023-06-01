@@ -10,3 +10,6 @@ PORT = 5100
 HOST = ""
 ```
 change the above content according to your configuration.
+
+- I have hosted it on AWS Machine using Apache.
+{here is the link} [https://gs20.poketradinghub.com/]
